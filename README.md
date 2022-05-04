@@ -15,10 +15,14 @@
     ```rails g migration CreateUsers name:string password_digest:string email:string```
   1. Atualizar schema com as migrações pendentes:
     ```rails db:migrate```
+  
 </details>
   
 <details>
   <summary>Configurações do projeto </summary>
-* Ruby version 2.7.3
-* Rails + Postgresql
+  
+  * Ruby version 2.7.3
+  
+  * Rails + Postgresql
+  
 </details>
