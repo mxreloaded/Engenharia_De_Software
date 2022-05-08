@@ -7,7 +7,7 @@ ruby "2.7.3"
 gem "rails", "~> 7.0.2", ">= 7.0.2.4"
 
 #Frontend
-gem 'webpacker'
+gem 'webpacker', '~> 4.0'
 gem 'react-rails'
 
 #Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
