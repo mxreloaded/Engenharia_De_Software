@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     defaults(format: :json) do
       namespace :v1 do
         resources :users
-        resources :posts
+        resources :shopcarts, only: %i[create]
       end
     end
   end
