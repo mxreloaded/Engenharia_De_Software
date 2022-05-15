@@ -10,7 +10,7 @@ module Api
           user: Api::V1::PublicUserSerializer.call(object.user),
           category: object&.category.present? ? Api::V1::CategorySerializer.call(object.category) : nil,
           **quantity(object.id, shopcart_id),
-          **products_shopcart(object.id, shopcart_id)
+          **products_shopcart_values(object.id, shopcart_id)
         )
       end
 
@@ -20,8 +20,10 @@ module Api
         shopcart_id.present? ? { quantity: ProductsShopcart.where(product_id: product_id, shopcart_id: shopcart_id).first.quantity } : {}
       end
 
-      def self.products_shopcart(product_id, shopcart_id)
-        shopcart_id.present? ? { productsShopcartId: ProductsShopcart.where(product_id: product_id, shopcart_id: shopcart_id).first.id } : {}
+      def self.products_shopcart_values(product_id, shopcart_id)
+        product_shopcart = ProductsShopcart.where(product_id: product_id, shopcart_id: shopcart_id).first
+
+        shopcart_id.present? ? { productsShopcartId: product_shopcart&.id, promoValue: product_shopcart&.promo_value, promoQuantity: product_shopcart&.promo_quantity,  } : {}
       end
     end
   end

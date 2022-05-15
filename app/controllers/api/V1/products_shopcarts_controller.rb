@@ -4,13 +4,15 @@ module Api
       before_action :set_product_shopcart, only: [:destroy, :update]
 
       def update
+        promo_value = params[:promo_value] if params[:promo_value].present?
+        promo_quantity = params[:promo_quantity] if params[:promo_quantity].present?
         if params[:quantity].present?
           quantity = params[:quantity] 
         else
           quantity = 1
         end
 
-        @products_shopcart.update(quantity: quantity)
+        @products_shopcart.update(quantity: quantity, promo_value: promo_value, promo_quantity: promo_quantity)
 
         render :json => Api::V1::ProductsShopcartSerializer.call(@products_shopcart)
       end

@@ -89,8 +89,7 @@
     <summary>(API) Produtos-Carrinho</summary>
     <li>Adicionar um produto em um carrinho</li>
       - (POST) /api/v1/products_shopcarts - enviando: shopcart_id, product_id, quantity
-    <li>Atualizar a quantidade</li>
-      - (PUT) /api/v1/products_shopcarts/:product_shopcart_id - enviando: quantity
-      - FUTURAMENTE VAMOS PODER ENVIAR promo_quantity e promo_value
+    <li>Atualizar a quantidade, preço promocional, quantidade promocional</li>
+      - (PUT) /api/v1/products_shopcarts/:product_shopcart_id - enviando: quantity, promo_quantity e/ou promo_value
   </details>
 </details>
