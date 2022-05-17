@@ -9,4 +9,6 @@ class User < ApplicationRecord
     
     has_many :shopcarts_users
     has_many :shopcarts, through: :shopcarts_users
+
+    has_many :products_shopcarts, through: :shopcarts
 end
