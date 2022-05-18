@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     defaults(format: :json) do
       namespace :v1 do
         resources :users
-        resources :shopcarts, only: %i[create index show]
+        resources :shopcarts, only: %i[create index show update]
         resources :products, only: %i[create index]
         resources :products_shopcarts, only: %i[create update delete]
         resources :categories, only: %i[index]

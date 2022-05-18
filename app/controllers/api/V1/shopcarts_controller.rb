@@ -39,7 +39,7 @@ module Api
       private
 
       def shopcart_params
-        params.permit(:name, :users, :product_ids)
+        params.permit(:name, :users, :user_ids, :product_ids)
       end
 
       def set_shopcart
