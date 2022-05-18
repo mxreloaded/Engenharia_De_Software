@@ -20,6 +20,8 @@ module Api
       def create
         product_id = params[:product_id] if params[:product_id].present?
         shopcart_id = params[:shopcart_id] if params[:shopcart_id].present?
+        promo_value = params[:promo_value] if params[:promo_value].present?
+        promo_quantity = params[:promo_quantity] if params[:promo_quantity].present?
         if params[:quantity].present?
           quantity = params[:quantity] 
         else
@@ -38,7 +40,7 @@ module Api
           return render json: { errors: "Você não participa desse carrinho :(" }, status: :unprocessable_entity
         end
 
-        products_shopcart = ProductsShopcart.create(product_id: product_id, shopcart_id: shopcart_id, quantity: quantity)
+        products_shopcart = ProductsShopcart.create(product_id: product_id, shopcart_id: shopcart_id, quantity: quantity, promo_value: promo_value, promo_quantity: promo_quantity )
 
         render :json => Api::V1::ProductsShopcartSerializer.call(products_shopcart)
       end
