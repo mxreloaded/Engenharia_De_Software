@@ -31,7 +31,7 @@ module Api
           return render json: { errors: "Você não participa desse carrinho :(" }, status: :unprocessable_entity
         end
 
-        @shopcart.update(user_params)
+        @shopcart.update(shopcart_params)
 
         render json: Api::V1::ShopcartSerializer.call(@shopcart), status: :ok
       end
