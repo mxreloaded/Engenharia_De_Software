@@ -33,9 +33,8 @@ module Api
         
         name = params[:name] if params[:name].present?
         user_ids = params[:user_ids] if params[:user_ids].present?
-        product_ids = params[:product_ids] if params[:product_ids].present?
 
-        @shopcart.update(name: name, user_ids: user_ids, product_ids: product_ids)
+        @shopcart.update(name: name, user_ids: user_ids)
 
         render json: Api::V1::ShopcartSerializer.call(@shopcart), status: :ok
       end
