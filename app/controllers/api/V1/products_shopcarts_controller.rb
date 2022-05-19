@@ -40,7 +40,7 @@ module Api
           return render json: { errors: "Você não participa desse carrinho :(" }, status: :unprocessable_entity
         end
 
-        products_shopcart = ProductsShopcart.create(product_id: product_id, shopcart_id: shopcart_id, quantity: quantity, promo_value: promo_value, promo_quantity: promo_quantity )
+        products_shopcart = ProductsShopcart.create(product_id: product_id, shopcart_id: shopcart_id, quantity: quantity, promo_value: promo_value, promo_quantity: promo_quantity )
 
         render :json => Api::V1::ProductsShopcartSerializer.call(products_shopcart)
       end
