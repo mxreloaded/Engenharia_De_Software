@@ -1,7 +1,7 @@
 module Api 
   module V1
     class ProductsShopcartsController < BaseController
-      before_action :set_product_shopcart, only: [:destroy, :update]
+      before_action :set_product_shopcart, only: [:destroy, :delete, :update]
 
       def update
         promo_value = params[:promo_value] if params[:promo_value].present?
@@ -43,6 +43,10 @@ module Api
         products_shopcart = ProductsShopcart.create(product_id: product_id, shopcart_id: shopcart_id, quantity: quantity, promo_value: promo_value, promo_quantity: promo_quantity )
 
         render :json => Api::V1::ProductsShopcartSerializer.call(products_shopcart)
+      end
+
+      def delete
+        destroy
       end
 
       def destroy
