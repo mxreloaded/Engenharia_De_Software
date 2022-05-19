@@ -24,9 +24,9 @@ module Api
               promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
               value = 0
               if quantity > promo_quantity
-                value = quantity * price
-              else
                 value = quantity * promo_value
+              else
+                value = quantity * price
               end
               total = total + value
             end
@@ -46,9 +46,9 @@ module Api
             promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
             value = 0
             if quantity > promo_quantity 
-              value = quantity * price
-            else
               value = quantity * promo_value
+            else
+              value = quantity * price
             end
             total = total + value
           end
