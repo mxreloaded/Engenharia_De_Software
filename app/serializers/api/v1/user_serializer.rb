@@ -23,7 +23,7 @@ module Api
               price = product_shopcart.product.price
               promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
               value = 0
-              if quantity < promo_quantity
+              if quantity > promo_quantity
                 value = quantity * price
               else
                 value = quantity * promo_value
@@ -32,7 +32,7 @@ module Api
             end
           end
 
-          { name: category.name, spentThisYear: total }
+          { name: category.name, spentThisYear: total.to_f.round(2) }
         end
       end
 
@@ -45,7 +45,7 @@ module Api
             price = product_shopcart.product.price
             promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
             value = 0
-            if quantity < promo_quantity
+            if quantity > promo_quantity
               value = quantity * price
             else
               value = quantity * promo_value
@@ -54,7 +54,7 @@ module Api
           end
         end
 
-        total
+        total.to_f.round(2)
       end
     end
   end
