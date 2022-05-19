@@ -40,12 +40,12 @@ module Api
         total = 0
         user.shopcarts.from_this_year.each do |shopcart|
           shopcart.products_shopcarts.each do |product_shopcart|
-            quantity = product_shopcart.quantity ? 0 : product_shopcart.quantity
+            quantity = product_shopcart.quantity.nil? ? 0 : product_shopcart.quantity
             promo_quantity = product_shopcart.promo_quantity.nil? ? 0 : product_shopcart.promo_quantity
             price = product_shopcart.product.price.nil? ? 0 : product_shopcart.product.price 
             promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
             value = 0
-            if quantity > promo_quantity
+            if quantity > promo_quantity 
               value = quantity * price
             else
               value = quantity * promo_value
