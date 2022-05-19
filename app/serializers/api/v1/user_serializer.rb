@@ -18,7 +18,7 @@ module Api
           total = 0
           user.shopcarts.from_this_year.each do |shopcart|
             shopcart.products_shopcarts.by_category(category).each do |product_shopcart|
-              quantity = product_shopcart.quantity ? 0 : product_shopcart.quantity
+              quantity = product_shopcart.quantity.nil? ? 0 : product_shopcart.quantity
               promo_quantity = product_shopcart.promo_quantity.nil? ? 0 : product_shopcart.promo_quantity
               price = product_shopcart.product.price.nil? ? 0 : product_shopcart.product.price 
               promo_value = product_shopcart.promo_value.nil? ? 0 : product_shopcart.promo_value
